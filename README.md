@@ -1,0 +1,39 @@
+ENiGMA½ BBS
+===========
+Installs [ENiGMA½ BBS software](https://github.com/davestephens/enigma-bbs/blob/master/misc/install.sh). 
+
+Requirements
+------------
+
+Ubuntu or Debian based Linux distribution. A Raspberry Pi with Raspbian installed is a great candidate!
+
+Role Variables
+--------------
+
+````yaml
+enigma_home: "{{ ansible_env.HOME }}/enigma_bbs" # ENiGMA½ install path
+enigma_repo: https://github.com/NuSkooler/enigma-bbs # ENiGMA½ repo to use
+
+nvm_version: v0.33.4 # nvm version to use
+nvm_node_version: 6.11.3 # node version to install (must be a full version number and not an alias)
+````
+Dependencies
+------------
+
+    - leonidas.nvm - nvm installation.
+
+Example Playbook
+----------------
+
+    1wehv- hosts: servers
+      roles:
+         - { role: davestephens.enigma-bbs }
+
+License
+-------
+
+MIT
+
+Author Information
+------------------
+[David Stephens](http://www.davidstephens.uk) - a DevOps and platform engineer from London, UK.

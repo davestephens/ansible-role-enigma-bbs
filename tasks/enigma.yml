@@ -1,0 +1,34 @@
+---
+- name: Update apt cache
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Install dependencies
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - p7zip
+    - lhasa
+    - arj
+    - lrzsz
+
+- name: Install ENiGMA½
+  git:
+    repo: "{{ enigma_repo }}"
+    dest: "{{ enigma_home }}"
+
+- name: Install Node modules
+  shell: "sudo -iu {{ enigma_nvm_user }} npm install {{ enigma_home }}"
+
+#- name: Install Node packages
+#  npm:
+#    path: "{{ enigma_home }}/"
+#    executable: "~/.nvm/versions/node/v{{ nvm_node_version }}/bin/npm"
+#
+#- name: Install pm2
+#  npm:
+#    name: pm2
+#    global: yes
+#    executable: "~/.nvm/versions/node/v{{ nvm_node_version }}/bin/npm"

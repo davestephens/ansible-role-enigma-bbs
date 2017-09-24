@@ -1,0 +1,9 @@
+---
+- name: Install and configure nvm
+  include_role:
+    name: leonidas.nvm
+  vars:
+    nvm:
+      user: "{{ ansible_user_id }}"
+      version: "{{ nvm_version }}"
+      node_version: "{{ nvm_node_version }}"
