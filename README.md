@@ -25,7 +25,7 @@ Dependencies
 Example Playbook
 ----------------
 
-    1wehv- hosts: servers
+    - hosts: servers
       roles:
          - { role: davestephens.enigma-bbs }
 
