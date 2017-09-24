@@ -1,4 +1,4 @@
-ENiGMA½ BBS
+ENiGMA½ BBS [![Build Status](https://travis-ci.org/davestephens/ansible-role-engima-bbs.svg?branch=master)](https://travis-ci.org/davestephens/ansible-role-engima-bbs) 
 ===========
 Installs [ENiGMA½ BBS software](https://github.com/NuSkooler/enigma-bbs). 
 
@@ -28,6 +28,10 @@ Example Playbook
     - hosts: servers
       roles:
          - { role: davestephens.enigma-bbs }
+
+Testing
+-------
+The role is tested against Debian and Ubuntu with [Travis CI](https://travis-ci.org/davestephens/ansible-role-engima-bbs).
 
 License
 -------
