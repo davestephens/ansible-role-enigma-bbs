@@ -1,6 +1,6 @@
 ENiGMA½ BBS
 ===========
-Installs [ENiGMA½ BBS software](https://github.com/davestephens/enigma-bbs/blob/master/misc/install.sh). 
+Installs [ENiGMA½ BBS software](https://github.com/NuSkooler/enigma-bbs). 
 
 Requirements
 ------------
