@@ -92,7 +92,7 @@ printf "\n"
 
 # Run Ansible playbook.
 printf ${green}"Running command: docker exec $container_id env TERM=xterm ansible-playbook /etc/ansible/roles/role_under_test/tests/$playbook"${neutral}"\n"
-docker exec $container_id env TERM=xterm env ANSIBLE_FORCE_COLOR=1 ansible-playbook /etc/ansible/roles/role_under_test/tests/$playbook -vvv
+docker exec $container_id env TERM=xterm env ANSIBLE_FORCE_COLOR=1 ansible-playbook /etc/ansible/roles/role_under_test/tests/$playbook -v
 
 if [ "$test_idempotence" = true ]; then
   # Run Ansible playbook again (idempotence test).

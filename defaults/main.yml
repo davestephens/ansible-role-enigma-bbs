@@ -1,7 +1,10 @@
 ---
-enigma_home: "{{ ansible_env.HOME }}/enigma_bbs"
-enigma_repo: https://github.com/NuSkooler/enigma-bbs
-enigma_nvm_user: "{{ ansible_user_id }}"
+enigma:
+  home: "{{ ansible_env.HOME }}/enigma_bbs"
+  repo: https://github.com/NuSkooler/enigma-bbs
+  nvm_user: "{{ ansible_user_id }}"
 
-nvm_version: v0.33.4
-nvm_node_version: 6.11.3
+nvm:
+  version: v0.33.4
+  node_version: 6.11.3
+  user: "{{ ansible_user_id }}"

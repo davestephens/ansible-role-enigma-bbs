@@ -16,11 +16,11 @@
 
 - name: Install ENiGMA½
   git:
-    repo: "{{ enigma_repo }}"
-    dest: "{{ enigma_home }}"
+    repo: "{{ enigma.repo }}"
+    dest: "{{ enigma.home }}"
 
 - name: Install Node modules
-  shell: "sudo -iu {{ enigma_nvm_user }} npm install {{ enigma_home }}"
+  shell: "sudo -iu {{ enigma.nvm_user }} npm install {{ enigma.home }}"
 
 #- name: Install Node packages
 #  npm:
