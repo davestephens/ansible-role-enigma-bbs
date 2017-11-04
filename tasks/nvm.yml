@@ -12,31 +12,31 @@
 
 - name: Install nvm
   sudo: yes
-  sudo_user: "{{ nvm.user }}"
+  sudo_user: "{{ nvm_user }}"
   git:
     repo: https://github.com/creationix/nvm.git
     dest: ~/.nvm
-    version: "{{ nvm.version }}"
+    version: "{{ nvm_version }}"
 
 - name: Source nvm in ~/.profile
   sudo: yes
-  sudo_user: "{{ nvm.user }}"
+  sudo_user: "{{ nvm_user }}"
   lineinfile: >
     dest=~/.profile
     line="source ~/.nvm/nvm.sh"
     create=yes
 
-- name: Install {{ nvm.node_version }}
-  command: sudo -iu {{ nvm.user }} nvm install {{ nvm.node_version }}
+- name: Install {{ nvm_node_version }}
+  command: sudo -iu {{ nvm_user }} nvm install {{ nvm_node_version }}
   register: nvm_install_result
   changed_when: "'is already installed.' not in nvm_install_result.stdout"
 
-- name: Check if {{ nvm.node_version }} is the default node version
-  shell: sudo -iu {{ nvm.user }} nvm ls | grep -e 'default -> {{ nvm.node_version }}'
+- name: Check if {{ nvm_node_version }} is the default node version
+  shell: sudo -iu {{ nvm_user }} nvm ls | grep -e 'default -> {{ nvm_node_version }}'
   register: nvm_check_default
   changed_when: False
   ignore_errors: True
 
-- name: Set default node version to {{ nvm.node_version }}
-  command: sudo -iu {{ nvm.user }} nvm alias default {{ nvm.node_version }}
+- name: Set default node version to {{ nvm_node_version }}
+  command: sudo -iu {{ nvm_user }} nvm alias default {{ nvm_node_version }}
   when: nvm_check_default|failed
